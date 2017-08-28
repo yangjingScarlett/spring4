@@ -10,13 +10,13 @@
 <script src="assets/js/jQuery.js" type="text/javascript"></script>
 
 <script>
-    function req(){
+    function req() {
         $.ajax({
-            url:"converter",
-            data:"1-wangyunfei",
-            type:"POST",
-            contentType:"application/x-wisely",
-            success:function (data) {
+            url: "converter",
+            data: "1-wangyunfei",
+            type: "POST",
+            contentType: "application/x-wisely",
+            success: function (data) {
                 $("#resp").html(data);
             }
         });
