@@ -26,6 +26,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {/
     @Override
     public DemoObj readInternal(Class<? extends DemoObj> clazz, HttpInputMessage inputMessage)
             throws IOException, HttpMessageNotReadableException {
+        //这个方法是把输入流（inputMessage.getBody()）的字节转换成String类型
         String temp = StreamUtils.copyToString(inputMessage.getBody(), Charset.forName("UTF-8"));
         String[] tempArr = temp.split("-");
         return new DemoObj(new Long(tempArr[0]), tempArr[1]);
@@ -33,6 +34,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {/
 
     @Override
     public boolean supports(Class<?> clazz) {
+        //isAssignableFrom   是用来判断一个类Class1和另一个类Class2是否相同或是Class2的超类或接口。
         return DemoObj.class.isAssignableFrom(clazz);
     }
 

@@ -23,6 +23,7 @@ public class WebInitializer implements WebApplicationInitializer {//WebApplicati
         Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));//注册springMVC的DispatcherServlet
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
+        servlet.setAsyncSupported(true);//开启异步方法支持，这是实现服务器端推送的一种方式
 
     }
 }

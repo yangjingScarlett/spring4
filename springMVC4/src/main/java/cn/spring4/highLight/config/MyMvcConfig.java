@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
  */
 @Configuration
 @EnableWebMvc
+@EnableScheduling
 @ComponentScan("cn.spring4.highLight")
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
     //这里的是基本的配置,不做定制化配置时也要写的。即即使不extends WebMvcConfigurerAdapter也要写
@@ -37,7 +39,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-    //重写方法以实现静态资源映射（直接访问静态资源），如：js,css文件，图片等
+    //重写方法以实现静态资源映射（直接访问静态资源），如：assets.js,css文件，图片等
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //addResourceLocations指的是文件放置的位置，addResourceHandler指的是对外暴露的访问路径
@@ -56,6 +58,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
         registry.addViewController("/converter").setViewName("/converter");
+        registry.addViewController("/async").setViewName("/async");
     }
 
     @Bean
