@@ -13,4 +13,11 @@ public class UseFunctionService {
     public void show(String word) {
         functionService.show(word);
     }
+
+    public UseFunctionService() {
+    }
+
+    public UseFunctionService(FunctionService functionService) {
+        this.functionService = functionService;
+    }
 }
