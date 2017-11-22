@@ -8,9 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Main {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(AopConfig.class);
-        AnnotationService annotationService=context.getBean(AnnotationService.class);
-        MethodService methodService=context.getBean(MethodService.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AopConfig.class);
+        AnnotationService annotationService = context.getBean(AnnotationService.class);
+        MethodService methodService = context.getBean(MethodService.class);
 
         System.out.println("------------------------------------------");
         annotationService.add();
