@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();//此时这里先不要载入ProfileConfig.class，因为要先设置环境配置
-        context.getEnvironment().setActiveProfiles("dev");//先将活动的profile设为prod
+        context.getEnvironment().setActiveProfiles("prod");//先将活动的profile设为prod
         context.register(ProfileConfig.class);//后置注册Bean配置类，不然会报Bean未定义的错误
         context.refresh();//刷新容器
 
