@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class DemoObj implements Serializable {
     private Long serial;
-    private String id_string;//这个名字不能为id，否则url路径中作为参数的id不能识别
+    private String id_string;//这个名字不能为id，否则url路径中作为参数的id不能识别，原因：在MyControllerAdvice设置了忽略参数中的id
     private String name;
 
     public DemoObj() {//Jackson对对象和json做转换时一定需要空构造
