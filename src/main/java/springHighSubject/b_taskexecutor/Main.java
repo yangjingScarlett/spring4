@@ -12,7 +12,7 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TaskExecutorConfig.class);
         AsyncTaskService asyncTaskService = context.getBean(AsyncTaskService.class);
 
-        //运行可以看到，线城是并发执行的而不是顺序执行
+        //运行可以看到，线程是并发执行的而不是顺序执行
         for (int i = 0; i < 10; i++) {
             asyncTaskService.executeAsyncTask(i);
             asyncTaskService.executeAsyncTaskPlus(i);

@@ -18,7 +18,7 @@ public class ScheduleTaskService {
         System.out.println("当前时间是:" + timeFormat.format(new Date()));
     }
 
-    @Scheduled(cron = "30 27 17 ? * *")//使用cron属性可以在指定时间执行，这里是每天的11点28分
+    @Scheduled(cron = "0 19 9 ? * *")//使用cron属性可以在指定时间执行，这里是每天的9点19分
     public void fixTimeExecution() {
         System.out.println("在指定时间" + timeFormat.format(new Date()) + "执行");
     }
