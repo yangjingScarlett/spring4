@@ -29,7 +29,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {/
         //这个方法是把输入流（inputMessage.getBody()）的字节转换成String类型
         String temp = StreamUtils.copyToString(inputMessage.getBody(), Charset.forName("UTF-8"));
         String[] tempArr = temp.split("-");
-        return new DemoObj(new Long(tempArr[0]), tempArr[1]);
+        return new DemoObj(Long.parseLong(tempArr[0]), tempArr[1], tempArr[2]);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {/
 
     @Override
     public void writeInternal(DemoObj obj, HttpOutputMessage outputMessage) throws IOException {
-        String out = "Hello:" + obj.getId() + "-" + obj.getName();
+        String out = "Serial:" + obj.getSerial() + " - Id_string:" + obj.getId_string() + " - Name:" + obj.getName();
         outputMessage.getBody().write(out.getBytes());
     }
 }

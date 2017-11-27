@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ConverterController {
 
+//    http://localhost:8080/convert?serial=1&id_string=1&name=yy
     @RequestMapping(value = "/convert", produces = "application/x-wisely")
     public
     @ResponseBody
-    DemoObj convert(@RequestBody DemoObj obj) {
+    DemoObj convert(DemoObj obj) {
         return obj;
     }
 }

@@ -17,7 +17,7 @@ public class TestRestController {
 
     @RequestMapping(value = "/testRest", produces = "text/plain;charset=UTF-8")
     public
-    @ResponseBody
+    @ResponseBody//在类注释是*@RestController*时，这句可以不写，返回的结果都是String而不是页面
     String testRest() {
         return demoService.saySomething();
     }
